@@ -15,7 +15,7 @@ export class PostComponent implements OnInit, AfterViewInit {
   @Input() user!: User;
   @Input() description!: string;
   @Input() likeNumber = Math.floor(Math.random()*1000);
-  @Input() uploadDate!: string;
+  @Input() uploadDaystamp!: number;
   @Input() medias : Media[] = [];
 
   @ViewChild("mediaContainer") mediaContainerRef: ElementRef;
@@ -36,6 +36,15 @@ export class PostComponent implements OnInit, AfterViewInit {
     }
   }
 
+  getTimeStamp(): number {
+    const randomDay = Math.floor(Math.random()*27)+1
+    const randomMonth = Math.floor(Math.random()*6)+1
+    const randomDate = new Date(2021, randomMonth, randomDay)
+    const today = new Date()
+    return Math.floor((today.getTime() - randomDate.getTime())/(1000*3600*24))
+
+  }
+
   constructor(private postService:PostService) {}
 
   ngOnInit(): void {
@@ -47,6 +56,7 @@ export class PostComponent implements OnInit, AfterViewInit {
     this.postService.getUser().subscribe((fecthedUser) => {
       this.user = fecthedUser
     })
+    this.uploadDaystamp = this.getTimeStamp()
   }
 
   ngAfterViewInit(): void {
