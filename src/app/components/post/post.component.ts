@@ -15,7 +15,7 @@ export class PostComponent implements OnInit, AfterViewInit {
   @Input() description!: string;
   @Input() likeNumber!: number;
   @Input() uploadDate!: string;
-  @Input() medias!: Media[];
+  @Input() medias : Media[] = [];
 
   @ViewChild("mediaContainer") mediaContainerRef: ElementRef;
 
@@ -38,9 +38,11 @@ export class PostComponent implements OnInit, AfterViewInit {
   constructor(private postService:PostService) {}
 
   ngOnInit(): void {
-    this.postService.getMedias().subscribe((media) => {
-      this.medias = ([media])
-    })
+    for (let i=0; i<Math.floor(Math.random()*5)+1;i++) {
+      this.postService.getMedias().subscribe((media) => {
+        this.medias.push(media)
+      })
+    }
   }
 
   ngAfterViewInit(): void {
