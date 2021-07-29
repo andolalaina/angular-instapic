@@ -23,7 +23,7 @@
             </svg>
         </button>
         <div class="post__medias" #mediaContainer>
-            <img *ngFor="let media of medias" class="post__media" [src]="media" alt="Post Content">
+            <img *ngFor="let media of medias" class="post__media" [src]="media.url" alt="Post Content">
         </div>
         <button class="post__right-button" [style]="medias.length>1 && activeMediaIndex<medias.length-1?'display: unset;':'display : none'" (click)="scrollRight()">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -40,7 +40,7 @@
                 </svg>
             </button>
 
-            <div class="post__indicators">
+            <div *ngIf="medias.length > 1" class="post__indicators">
                 <div *ngFor="let media of medias; index as i" [class]="i != activeMediaIndex?'post__indicator':'post__indicator post__indicator--active'"></div>
             </div>
 

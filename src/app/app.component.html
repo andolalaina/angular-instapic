@@ -14,8 +14,9 @@
         <app-story ng></app-story>
       </app-stories>
       <app-posts>
-        <app-post></app-post>
+        <app-post *ngFor="let x of items"></app-post>
       </app-posts>
+      <button (click)="addFeed()">More</button>
     </div>
   </section>
 </main>

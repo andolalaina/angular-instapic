@@ -2,6 +2,9 @@ import { style, trigger, state, transition, animate } from '@angular/animations'
 import { AfterViewInit } from '@angular/core';
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
+import { PostService } from 'src/app/services/post.service';
+import { Media } from 'src/app/media';
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -12,7 +15,7 @@ export class PostComponent implements OnInit, AfterViewInit {
   @Input() description!: string;
   @Input() likeNumber!: number;
   @Input() uploadDate!: string;
-  @Input() medias!: string[];
+  @Input() medias!: Media[];
 
   @ViewChild("mediaContainer") mediaContainerRef: ElementRef;
 
@@ -32,15 +35,12 @@ export class PostComponent implements OnInit, AfterViewInit {
     }
   }
 
-  constructor() { 
-  }
+  constructor(private postService:PostService) {}
 
   ngOnInit(): void {
-    this.medias = [
-      "https://picsum.photos/400",
-      "https://picsum.photos/400",
-      "https://picsum.photos/400",
-    ]  
+    this.postService.getMedias().subscribe((media) => {
+      this.medias = ([media])
+    })
   }
 
   ngAfterViewInit(): void {
