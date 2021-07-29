@@ -56,7 +56,9 @@ img { max-width: 100%; }
     background-color: var(--primary);
 
     display: flex;
+    flex-flow: column;
     justify-content: center;
+    align-items: center;
 
     position: fixed;
     top: 0; left: 0;
@@ -429,6 +431,11 @@ img { max-width: 100%; }
     font-weight: 400;
     color: var(--text-light);
     text-transform: uppercase;
+}
+
+.credential {
+    text-align: center;
+    font-size: .75rem;
 }
 
 /* Media Queries */
