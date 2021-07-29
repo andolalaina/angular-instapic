@@ -1,19 +1,11 @@
 <article #post class="post">
     <div class="post__header">
         <div class="post__profile">
-            <a href="https://github.com/leocosta1" target="_blank" class="post__avatar">
-                <img [src]="user" alt="User Picture">
+            <a href="#" target="_blank" class="post__avatar">
+                <img [src]="user.results[0].picture.thumbnail" alt="User Picture">
             </a>
-            <a href="https://github.com/leocosta1" target="_blank" class="post__user">{{ user }}</a>
+            <a href="#" target="_blank" class="post__user">{{ user.results[0].name.first }}</a>
         </div>
-
-        <button class="post__more-options">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="6.5" cy="11.5" r="1.5" fill="var(--text-dark)"/>
-                <circle cx="12" cy="11.5" r="1.5" fill="var(--text-dark)"/>
-                <circle cx="17.5" cy="11.5" r="1.5" fill="var(--text-dark)"/>
-            </svg>
-        </button>
     </div>
 
     <div class="post__content">
@@ -58,8 +50,8 @@
 
             <div class="post__description">
                 <span>
-                    <a class="post__name--underline" href="https://github.com/leocosta1" target="_blank">{{ user }}</a>
-                    {{ description }}
+                    <a class="post__name--underline" href="#" target="_blank">{{ user.results[0].name.first }}</a>
+                    {{ user.results[0].location.city }}, {{ user.results[0].location.state }}
                 </span>
             </div>
 
