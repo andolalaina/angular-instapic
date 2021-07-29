@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'
+import { InViewportModule } from 'ng-in-viewport';
 
 
 import { AppComponent } from './app.component';
@@ -21,7 +22,8 @@ import { PostComponent } from './components/post/post.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    InViewportModule
   ],
   providers: [],
   bootstrap: [AppComponent]

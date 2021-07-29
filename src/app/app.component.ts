@@ -1,5 +1,5 @@
-import { Component, Input, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { Component, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',

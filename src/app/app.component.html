@@ -16,7 +16,9 @@
       <app-posts>
         <app-post *ngFor="let x of items"></app-post>
       </app-posts>
-      <button (click)="addFeed()">More</button>
+      <button 
+      inViewport
+      (inViewportAction)="addFeed()">More</button>
     </div>
   </section>
 </main>
