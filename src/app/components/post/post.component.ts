@@ -14,6 +14,7 @@ import { User } from 'src/app/user';
 export class PostComponent implements OnInit, AfterViewInit {
   @Input() user!: User;
   @Input() description!: string;
+  @Input() liked = false;
   @Input() likeNumber = Math.floor(Math.random()*1000);
   @Input() uploadDaystamp!: number;
   @Input() medias : Media[] = [];
@@ -43,6 +44,10 @@ export class PostComponent implements OnInit, AfterViewInit {
     const today = new Date()
     return Math.floor((today.getTime() - randomDate.getTime())/(1000*3600*24))
 
+  }
+
+  toggleLike(): void {
+    this.liked = !this.liked
   }
 
   constructor(private postService:PostService) {}
